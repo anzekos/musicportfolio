@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kos Production | Music Producer Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        :root {
+            --primary: #1DB954; /* Spotify green */
+            --dark: #121212;
+            --light-dark: #181818;
+            --lighter-dark: #282828;
+            --text: #ffffff;
+            --text-secondary: #b3b3b3;
+        }
+        
+        body {
+            background-color: var(--dark);
+            color: var(--text);
+            line-height: 1.6;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        section {
+            padding: 80px 0;
+        }
+        
+        h1, h2, h3 {
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+        
+        h1 {
+            font-size: 3.5rem;
+            line-height: 1.2;
+        }
+        
+        h2 {
+            font-size: 2.5rem;
+            position: relative;
+            display: inline-block;
+        }
+        
+        h2:after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background-color: var(--primary);
+        }
+        
+        p {
+            margin-bottom: 20px;
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--primary);
+            color: var(--dark);
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn:hover {
+            background-color: #1ed760;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        /* Header */
+        header {
+            background-color: rgba(18, 18, 18, 0.9);
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            padding: 20px 0;
+            backdrop-filter: blur(10px);
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 30px;
+        }
+        
+        .nav-links a {
+            color: var(--text);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+        
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8));
+            padding-top: 80px;
+            text-align: center;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.3rem;
+            margin-bottom: 30px;
+            color: var(--text);
+        }
+        
+        /* About Section */
+        .about {
+            background-color: var(--light-dark);
+            text-align: center;
+        }
+        
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 30px;
+        }
+        
+        .skill {
+            background-color: var(--lighter-dark);
+            padding: 10px 20px;
+            border-radius: 20px;
+            margin: 0 10px 15px;
+            font-size: 0.9rem;
+        }
+        
+        .external-link {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .external-link:hover {
+            text-decoration: underline;
+        }
+        
+        /* Work Section */
+        .work {
+            background-color: var(--dark);
+        }
+        
+        .projects {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .project {
+            background-color: var(--lighter-dark);
+            border-radius: 10px;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+        
+        .project:hover {
+            transform: translateY(-10px);
+        }
+        
+        .project-img {
+            position: relative;
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .project-img iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        
+        .project-info {
+            padding: 20px;
+        }
+        
+        .project-title {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+        
+        .project-desc {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--light-dark);
+            padding: 30px 0;
+            text-align: center;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            h2 {
+                font-size: 2rem;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">KOS PRODUCTION</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#work">Work</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Professional Music Production</h1>
+                <p class="hero-subtitle">Experienced music producer and musician with numerous successful projects and satisfied clients. Expert in all genres with a keen ear for detail.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2>About Me</h2>
+            <div class="about-content">
+                <p>I am an experienced music producer and musician with numerous successful projects and satisfied clients behind me. With years of experience in the industry, I've developed a keen ear for all genres and a meticulous approach to music production.</p>
+                <p>My expertise ranges from arrangement and instrumental recording to vocal editing, mixing, and mastering. I'm dedicated to bringing your musical vision to life with professional quality and creative input.</p>
+                <p>For more information about my services and to get in touch, please visit my main portfolio at <a href="https://kos-production.vercel.app/" class="external-link">kos-production.vercel.app</a></p>
+                
+                <h3>My Skills</h3>
+                <div class="skills">
+                    <span class="skill">Music Production</span>
+                    <span class="skill">Mixing</span>
+                    <span class="skill">Mastering</span>
+                    <span class="skill">Arrangement</span>
+                    <span class="skill">Vocal Editing</span>
+                    <span class="skill">Sound Design</span>
+                    <span class="skill">Instrument Recording</span>
+                    <span class="skill">Audio Engineering</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Work Section -->
+    <section id="work" class="work">
+        <div class="container">
+            <h2>My Latest Work</h2>
+            <p>Here are some of my recent projects. Each one represents a different challenge and creative solution.</p>
+            
+            <div class="projects">
+                <!-- Album Project -->
+                <div class="project">
+                    <div class="project-img">
+                        <iframe src="https://www.youtube.com/embed/VZ_gP-OW9Ps" title="SOPHY Album" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <div class="project-info">
+                        <h3 class="project-title">SOPHY - Full Album</h3>
+                        <p class="project-desc">Full album arrangement and instrument recording</p>
+                    </div>
+                </div>
+                
+                <!-- Production Project -->
+                <div class="project">
+                    <div class="project-img">
+                        <iframe src="https://www.youtube.com/embed/UIf61PAnsA4" title="Kos Production" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <div class="project-info">
+                        <h3 class="project-title">MoeTheKid Track</h3>
+                        <p class="project-desc">Full arrangement, production, vocal editing, mix</p>
+                    </div>
+                </div>
+                
+                <!-- Beat Production Projects -->
+                <div class="project">
+                    <div class="project-img">
+                        <iframe src="https://www.youtube.com/embed/vK5f4o65pYA" title="Beat Production 1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <div class="project-info">
+                        <h3 class="project-title">Retro Beat</h3>
+                        <p class="project-desc">Full beat production, mix and master</p>
+                    </div>
+                </div>
+                
+                <div class="project">
+                    <div class="project-img">
+                        <iframe src="https://www.youtube.com/embed/YpfzntQVGyY" title="Beat Production 2" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <div class="project-info">
+                        <h3 class="project-title">Chill Trap Beat</h3>
+                        <p class="project-desc">Full beat production, mix and master</p>
+                    </div>
+                </div>
+                
+                <div class="project">
+                    <div class="project-img">
+                        <iframe src="https://www.youtube.com/embed/OiAo4eLJwhQ" title="Beat Production 3" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <div class="project-info">
+                        <h3 class="project-title">Acoustic Track</h3>
+                        <p class="project-desc">Full beat production, mix and master</p>
+                    </div>
+                </div>
+                
+                <div class="project">
+                    <div class="project-img">
+                        <iframe src="https://www.youtube.com/embed/6oU_dpu7-Sw" title="Beat Production 4" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <div class="project-info">
+                        <h3 class="project-title">Piano Beat</h3>
+                        <p class="project-desc">Full beat production, mix and master</p>
+                    </div>
+                </div>
+                
+                <div class="project">
+                    <div class="project-img">
+                        <iframe src="https://www.youtube.com/embed/QXIQNCXmEkE" title="Beat Production 5" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <div class="project-info">
+                        <h3 class="project-title">Trap Beat</h3>
+                        <p class="project-desc">Full beat production, mix and master</p>
+                    </div>
+                </div>
+                
+                <div class="project">
+                    <div class="project-img">
+                        <iframe src="https://www.youtube.com/embed/0RskINU7b_A" title="Beat Production 6" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <div class="project-info">
+                        <h3 class="project-title">Drake Beat</h3>
+                        <p class="project-desc">Full beat production, mix and master</p>
+                    </div>
+                </div>
+                
+                <div class="project">
+                    <div class="project-img">
+                        <iframe src="https://www.youtube.com/embed/FjsnswpFoD0" title="Beat Production 7" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <div class="project-info">
+                        <h3 class="project-title">Hip Hop Beat</h3>
+                        <p class="project-desc">Full beat production, mix and master</p>
+                    </div>
+                </div>
+                
+                <div class="project">
+                    <div class="project-img">
+                        <iframe src="https://www.youtube.com/embed/YBU-zscRe3U" title="Gal Macedoni" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <div class="project-info">
+                        <h3 class="project-title">Gal Macedoni</h3>
+                        <p class="project-desc">Arrangement, full instrumental recording, master</p>
+                    </div>
+                </div>
+                
+                <div class="project">
+                    <div class="project-img">
+                        <iframe src="https://www.youtube.com/embed/siTSf9bJydQ" title="Mastering Example" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <div class="project-info">
+                        <h3 class="project-title">Mastering Work</h3>
+                        <p class="project-desc">Professional mastering service</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>For more information and contact details, please visit my main portfolio at <a href="https://kos-production.vercel.app/" class="external-link">kos-production.vercel.app</a></p>
+            <p>&copy; 2025 Kos Production. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
